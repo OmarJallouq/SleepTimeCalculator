@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: blueviolet;
+    font-family: 'Saira', sans-serif;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+h1{
+    font-size: 8vw;
+    text-align: center;
+    text-transform: capitalize;
+    margin: 30px 0px;
+    font-weight: 900;
+}
+
+h1 span {
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 6vw;
+    text-align: center;
+    padding: 16px;
+}
+
+button {
+    width: auto;
+    padding: 10px;
+    text-align: center;
+
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+.but1container,
+.but2container {
+    padding: 10px;
+    text-align: center;
+}
+
+.time-picker {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 25px 15px;
+    
+    background-color: #F3F3F3;
+    border-radius: 8px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 10);
+
+    color: #53535A;
+    font-size: 50px;
+    font-weight: 800;
+
+    user-select: none;
+
+}
+
+.time-picker .hour,
+.time-picker .minute {
+    position: relative;
+    min-width: 60px;
+    text-align: center;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    padding: 10px
+}
+
+.time-picker .hour .hr,
+.time-picker .minute .min {
+    background: none;
+    font-size: 42px;
+    appearance: none;
+    border: none;
+    outline: none;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: 'Saira', sans-serif;
+}
+
+.time-picker .hour .hr-up,
+.time-picker .minute .min-up,
+.time-picker .hour .hr-down,
+.time-picker .minute .min-down{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+
+    width: 40px;
+    height: 20px;
+
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+
+    cursor: pointer;
+}
+
+.time-picker .hour .hr-up,
+.time-picker .minute .min-up {
+    top: -10px;
+    border-bottom: 20px solid #AAA;
+}
+
+.time-picker .hour .hr-down,
+.time-picker .minute .min-down {
+    bottom: -10px;
+    border-top: 20px solid #AAA;
+}
+
+.time-picker .hour .hr-up:hover,
+.time-picker .minute .min-up:hover,
+.time-picker .hour .hr-down:hover,
+.time-picker .minute .min-down:hover {
+    border-bottom-color: #53565A;
+    border-top-color: #53565A;
+}
+
+
+
+.time-view {
+    line-height: 1.4;
+    text-align: center;
+    display: none; }
+.time-view__title {
+    color: #FFDD88;
+    font-size: 1.375em;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: .5em; }
+.time-view__text {
+    color: #fff;
+    font-size: 0.875em; }
+    .time-view__text_mb {
+    margin-bottom: 1.75em; }
+    .time-view__text_hidden {
+    display: none; }
+.time-view__list {
+    margin-bottom: .5em; }
+@media screen and (min-width: 350px) {
+    .time-view__title {
+    font-size: 1.5em; }
+    .time-view__text {
+    font-size: 1em; }
+    .time-view__text_mb {
+        margin-bottom: 1em; } }
+@media screen and (min-width: 970px) {
+    .time-view__title {
+    font-size: 1.75em; }
+    .time-view__text {
+    font-size: 1.5em; }
+    .time-view__list {
+    margin-bottom: .5em; } }   
+.time-list {
+    display: flex;
+    flex-wrap: wrap;
+    color: #fff;
+    list-style: none;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 31em;
+    margin-left: auto;
+    margin-right: auto; }
+.time-list__text {
+    white-space: nowrap;
+    font-weight: 600;
+    line-height: 0.8; }
+.time-list__item {
+    border-radius: 6px;
+    background-color: #202646;
+    width: calc(50% - .285em);
+    font-size: 1em;
+    box-shadow: 0px 2px 8px -4px rgba(5, 12, 45, 0.2);
+    height: 2.42em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: .57em; }
+    .time-list__item:after {
+    content: none;
+    color: #FFDD88;
+    font-size: .5em;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: .9; }
+    .time-list__item_suggested {
+    justify-content: space-between;
+    flex-direction: column;
+    height: auto;
+    padding: .65em;
+    font-size: 1.125em; }
+    .time-list__item_suggested .time-list__text {
+        margin-bottom: .35em; }
+    .time-list__item_suggested:after {
+        content: "suggested"; }
+@media screen and (min-width: 350px) {
+    .time-list__item {
+    width: calc(25% - .55em); }
+    .time-list__item:after {
+        margin-top: 0.15em; }
+    .time-list__item_suggested {
+        flex-direction: row;
+        height: 2.15em;
+        padding: 0 .5em;
+        width: calc(50% - .325em); }
+        .time-list__item_suggested .time-list__text {
+        margin-bottom: 0; } }
+@media screen and (min-width: 970px) {
+    .time-list__item {
+    font-size: 1.25em;
+    height: 2.4em;
+    margin-bottom: .8em;
+    width: calc(25% - .75em); }
+    .time-list__item_suggested {
+        width: calc(50% - .4em);
+        font-size: 1.5em;
+        height: 2em; } }
