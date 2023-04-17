@@ -126,6 +126,21 @@ function calcBedTime(){
     let timings = ['','','','','',''];
     let list = document.getElementById("timeList");
 
+    let bedText = document.getElementById("bedTextElem");
+    bedText.classList.remove("time-view__text_hidden");
+
+    let wakeText = document.getElementById("wakeTextElem");
+    wakeText.classList.add("time-view__text_hidden");
+
+    let bedTime = document.getElementById("timeSpan");
+    bedTime.innerHTML = tHour + ":" + tMinute;
+
+    let title = document.getElementById("titleElem");
+    title.innerHTML = "Bedtime";
+
+    let sleepwakeup = document.getElementById("sleepwakeup");
+    sleepwakeup.innerHTML= "sleep";
+
     //time to sleep
     tMinute -= 15;
 
@@ -182,7 +197,21 @@ function calcWakeUp(){
     let f = new Date();
     let nHour = f.getHours();
     let nMinute = f.getMinutes();
+    let timings = ['','','','','','']
     let list = document.getElementById("timeList");
+
+
+    var bedText = document.getElementById("bedTextElem");
+    bedText.classList.add("time-view__text_hidden");
+
+    var wakeText = document.getElementById("wakeTextElem");
+    wakeText.classList.remove("time-view__text_hidden");
+
+    let title = document.getElementById("titleElem");
+    title.innerHTML = "Wake-up Time";
+
+    let sleepwakeup = document.getElementById("sleepwakeup");
+    sleepwakeup.innerHTML= "wake-up";
 
     // it is currently __:__ correct? confirmation box DIDNT DO THIS
  
@@ -214,9 +243,14 @@ function calcWakeUp(){
         
         console.log(formatTime(nHour)+':'+formatTime(nMinute))
         
+        timings[i] = formatTime(nHour) + ":" + formatTime(nMinute);
+
+    }
+
+    for (let i = 5; i >= 0; i--){
         var li = document.createElement('li');
-        li.innerText = formatTime(nHour) + ":" + formatTime(nMinute);
-        if(i<2){
+        li.innerText=timings[i]
+        if(i>3){
             li.classList.add("time-list__item");
             li.classList.add("time-list__item_suggested");
         }
@@ -225,7 +259,6 @@ function calcWakeUp(){
         }
             list.appendChild(li);
     }
-
     var TIME = document.getElementById("time-view");
     TIME.style.display = "block";
 
